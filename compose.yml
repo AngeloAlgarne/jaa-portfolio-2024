@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    container_name: jaa-pf
+    ports:
+      - "3000:3000"
+    volumes:
+      - jaa-pf-vol:/app/
+    tty: true
+    stdin_open: true
+
+volumes:
+  jaa-pf-vol:
