@@ -2,15 +2,22 @@ version: '3.8'
 services:
   web:
     build:
-      # dockerfile: Dockerfile.init
-      dockerfile: .docker/Dockerfile.dev
       context: ./
-    command: npm run dev
+      target: dev
     container_name: jaa-web
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     ports:
       - 3000:3000
     volumes:
       - .:/app/
-      - /app/node_modules/
+      # - /app/node_modules/
+      - jaa-node_modules:/app/node_modules
     tty: true
     stdin_open: true
+
+volumes:
+  jaa-node_modules:
