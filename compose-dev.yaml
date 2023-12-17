@@ -1,5 +1,6 @@
 services:
   app:
+    container_name: ja-app
     entrypoint:
     - sleep
     - infinity
