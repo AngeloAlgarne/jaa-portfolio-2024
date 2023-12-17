@@ -13,6 +13,6 @@ My personal portfolio built with Next.js and developed in a Docker container.
 
 ## Development:
 - To start developing, clone this repository using `git clone <url>`
-- Open the repository in VS Code and run `docker compose build` then `docker compose up` in terminal
+- Open the repository in VS Code and run `docker compose build` then `docker compose up -d` in terminal
 - On the lower-left of VS Code, click the "><" button and select "Reopen in Container"
 - To restart the server, just restart the docker container

@@ -12,7 +12,7 @@ const Hero = () => {
                 <h1>Goodbye World.</h1>
             </div>
             <div className='flex flex-col w-2/5 '>
-                <div className='overflow-hidden rounded-2xl'>
+                <div className='overflow-hidden rounded-2xl w-fit'>
                     <Image src='/img/my_image_1.jpg' alt='My image' width={600} height={400}/>
                 </div>
                 <div>
