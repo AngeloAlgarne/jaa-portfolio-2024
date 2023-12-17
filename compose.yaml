@@ -5,6 +5,7 @@ services:
       # dockerfile: Dockerfile.init
       dockerfile: .docker/Dockerfile.dev
       context: ./
+    command: npm run dev
     container_name: jaa-web
     ports:
       - 3000:3000
