@@ -1,7 +1,7 @@
-import Hero from './Hero';
+import Gallery from './Gallery';
 import Navbar from './Navbar';
 
 export {
-    Hero,
-    Navbar
+    Gallery,
+    Navbar,
 }
