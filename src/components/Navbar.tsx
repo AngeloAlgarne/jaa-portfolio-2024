@@ -21,8 +21,8 @@ const Navlink: React.FC<NavlinkProps> = ({ children, href = "/" }) => {
 
 function Navbar() {
   return (
-    <nav className="flex gap-x-2 fixed top-5 text-white bg-indigo-950 px-1 py-1 rounded-2xl">
-      <Navlink>Home</Navlink>
+    <nav className="flex gap-x-2 fixed top-5 text-white bg-indigo-950 p-1 rounded-2xl">
+      <Navlink href="/">Home</Navlink>
       <Navlink href="/projects">Projects</Navlink>
       <Navlink>About</Navlink>
       <Navlink>Contact</Navlink>
