@@ -1,30 +1,32 @@
 import React from "react";
-import Image from "next/image";
+import { Gallery } from "@/components";
 
 function Home() {
+  const heroImageSrcArray = [
+    { src: "/img/home/my_image_1.jpg", alt: "My image 1" },
+    // {src:"/img/home/my_image_2.png", alt:"My image 2"},
+  ];
+
   return (
-    <section className="flex min-h-screen justify-between">
-      <div id="hero__left" className="flex flex-col gap-10 justify-center">
-        <h1>Hi,</h1>
-        <h1 className="text-8xl font-bold">Hello World.</h1>
-        <h1>Goodbye World.</h1>
-      </div>
-      <div className="right-part flex flex-col justify-center">
-        <div className="overflow-hidden rounded-2xl w-fit">
-          <Image
-            src="/img/my_image_1.jpg"
-            alt="My image"
-            width={600}
-            height={400}
-          />
+    <>
+      <section className="flex min-h-screen justify-between">
+        <div id="hero__left" className="flex flex-col gap-10 justify-center">
+          <h1>Hi,</h1>
+          <h1 className="text-8xl font-bold">Hello World.</h1>
+          <h1>Goodbye World.</h1>
         </div>
-        <div className="flex justify-center gap-10 p-5">
-          <div>prev</div>
-          <div>pagination</div>
-          <div>next</div>
+        <Gallery srcArray={heroImageSrcArray} />
+      </section>
+      <section>
+        <div className="flex flex-col justify-center">
+
         </div>
-      </div>
-    </section>
+        <div id="hero__left" className="flex flex-col gap-10 justify-center">
+          <h1 className="text-8xl">My</h1>
+          <h1 className="text-8xl font-bold">Projects</h1>
+        </div>
+      </section>
+    </>
   );
 }
 
