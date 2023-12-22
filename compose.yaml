@@ -5,7 +5,7 @@ services:
       context: ./
       target: dev
     container_name: jaa-web
-    restart: always
+    # restart: always
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
