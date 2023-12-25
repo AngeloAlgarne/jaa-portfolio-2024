@@ -1,10 +1,10 @@
-import Gallery from './Gallery';
+import Carousel from './Carousel';
 import Navbar from './Navbar';
 import Grid from './Grid';
 import GridCard from './GridCard';
 
 export {
-    Gallery,
+    Carousel,
     Navbar,
     Grid,
     GridCard

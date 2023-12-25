@@ -1,55 +1,99 @@
 import React from "react";
-import { promises as fs } from "fs";
-import { Gallery, Grid, GridCard } from "@/components";
+import Image from "next/image";
+import { Carousel, Grid, GridCard } from "@/components";
+import { HeroSection, ProjSkillSection } from "@/data/home";
+import SkillCard from "./SkillCard";
 
-async function Home() {
-  const heroImageSrcArray = [
-    { src: "/img/home/my_image_1.jpg", alt: "My image 1" },
-    // {src:"/img/home/my_image_2.png", alt:"My image 2"},
-  ];
+function Home() {
+  const images = HeroSection.imgs;
+  const profile = HeroSection.profile;
+  const skills = ProjSkillSection.skills;
 
-  // const file = await fs.readFile(process.cwd() + '/app/data.json', 'utf8');
-  // const data = JSON.parse(file);
+  const projects = ProjSkillSection.projects;
+  const projCardBaseStyle = {
+    backgroundImage: "",
+    backgroundSize: "cover",
+    backgroundColor: "rgba(0,0,0,0.55)",
+    backgroundBlendMode: "darken",
+  };
 
+  const projCardStyles = [];
+  for (let proj of projects) {
+    const style = projCardBaseStyle;
+    style.backgroundImage = `url("${proj.src}")`;
+    projCardStyles.push(style);
+  }
 
   return (
     <>
-      <section className="flex min-h-screen justify-between">
-        <div id="hero__left" className="flex flex-col gap-10 justify-center">
-          <h1>Hi,</h1>
-          <h1 className="text-8xl font-bold">Hello World.</h1>
-          <h1>Goodbye World.</h1>
+      <section className="flex min-h-screen justify-between gap-20">
+        <div
+          id="hero__left"
+          className="flex flex-col gap-10 justify-center w-2/3"
+        >
+          <h1 className="text-8xl whitespace-pre-wrap">
+            John Angelo{"\n"}
+            <span className="font-bold">Algarne</span>
+          </h1>
+          <p className="">{profile}</p>
         </div>
-        <Gallery srcArray={heroImageSrcArray} />
+        <Carousel>
+          {images &&
+            images.map(({ src, alt }, index) => {
+              return (
+                <Image
+                  key={index}
+                  width={520}
+                  height={400}
+                  src={src}
+                  alt={alt}
+                  priority
+                />
+              );
+            })}
+        </Carousel>
       </section>
-      <section className="flex justify-between mb-64">
-        <div className="flex flex-col justify-center w-3/5">
-          <Grid row={2} col={2}>
-            <GridCard>
-              <div>
-                1
-              </div>
-            </GridCard>
-            <GridCard>
-              <div>
-                1
-              </div>
-            </GridCard>
-            <GridCard>
-              <div>
-                1
-              </div>
-            </GridCard>
-            <GridCard>
-              <div>
-                1
-              </div>
-            </GridCard>
+      <section className="flex mt-16 mb-64">
+        <div className="flex flex-col w-full h-max pr-3">
+          <div className="p-10">
+            <h1 className="flex justify-start text-5xl whitespace-nowrap">
+              MY <span className="font-bold">PROJECTS</span>
+            </h1>
+          </div>
+          <Grid style={{paddingLeft: 40, paddingRight: 40}}>
+            {projects &&
+              projects.map((proj) => {
+                const style = { ...projCardBaseStyle };
+                style.backgroundImage = `url("${proj.src}")`;
+                return (
+                  <GridCard style={style}>
+                    <h1 className="w-full text-center font-bold mb-5">
+                      {proj.name}
+                    </h1>
+                    <p>{proj.desc}</p>
+                  </GridCard>
+                );
+              })}
           </Grid>
         </div>
-        <div id="hero__left" className="flex flex-col gap-10 justify-center">
-          <h1 className="text-7xl">My</h1>
-          <h1 className="text-7xl font-bold">Projects</h1>
+        <div className="w-2/5 h-full pl-12 border-l-2">
+          <div className="p-10">
+            <h1 className="text-5xl whitespace-nowrap">
+              MY<span className="font-bold">SKILLS</span>
+            </h1>
+          </div>
+          <div className="w-full h-full">
+            <ul className="flex flex-col text-base gap-4">
+              {skills &&
+                skills.map(({ name, details }) => {
+                  return (
+                    <li>
+                      <SkillCard name={name} details={details} />
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
         </div>
       </section>
     </>

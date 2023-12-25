@@ -1,16 +1,19 @@
 import React from "react";
-import Link from "next/link";
-import { redirect } from "next/navigation";
 
 type GridProps = {
   children?: React.ReactNode;
-  row?: number;
-  col?: number;
+  style?: {};
 };
 
-function Grid({ children, row = 2, col = 2 }: GridProps) {
-  const style = `grid grid-rows-${row} grid-cols-${col} gap-8`;
-  return <div className={style}>{children}</div>;
+function Grid({ children, style }: GridProps) {
+  return (
+    <div
+      className="flex flex-wrap gap-4 w-full h-full justify-start"
+      style={style}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default Grid;

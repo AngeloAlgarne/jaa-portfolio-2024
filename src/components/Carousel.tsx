@@ -1,17 +1,13 @@
-"use client";
-
 import React from "react";
-import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-type GalleryType = {
-  srcArray: {
-    src: string;
-    alt: string;
-  }[];
-};
+type CarouselType = {
+  children: React.ReactNode
+  style?: any,
+}
 
-function Gallery({ srcArray }: GalleryType) {
+function Carousel({ children, style }: CarouselType) {
+
   const arrowButtonStyle = { verticalAlign: "middle", height: "100%" };
   const ArrowButton = ({ children }: { children: React.ReactNode }) => {
     const className: string = `
@@ -26,14 +22,12 @@ function Gallery({ srcArray }: GalleryType) {
   };
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center" style={style}>
+      <div className="h-16">
+        {/* TO EQUALIZE SPACE */}
+      </div>
       <div className="overflow-hidden rounded-2xl w-fit">
-        {srcArray &&
-          srcArray.map(({ src, alt }, index) => {
-            return (
-              <Image key={index} src={src} alt={alt} width={600} height={400} />
-            );
-          })}
+        {children}
       </div>
       <div className="flex justify-center gap-10 p-5">
         <ArrowButton>
@@ -48,4 +42,4 @@ function Gallery({ srcArray }: GalleryType) {
   );
 }
 
-export default Gallery;
+export default Carousel;
