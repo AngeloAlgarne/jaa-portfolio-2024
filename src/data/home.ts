@@ -16,12 +16,12 @@ const ProjSkillSection = {
       src: "/img/placeholder1.jpg",
     },
     {
-      name: "Errand Tracking System",
+      name: "UST CSS Website",
       desc: "The ETS is a lorem ipsum",
       src: "/img/placeholder1.jpg",
     },
     {
-      name: "Library Management System",
+      name: "Old Portfolio Website",
       desc: "The LMS is a lorem ipsum",
       src: "/img/placeholder.jpg",
     },

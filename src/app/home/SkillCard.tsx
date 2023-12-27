@@ -6,25 +6,18 @@ type SkillCardType = {
     name: string;
     tooltip: string;
   }[];
-  separator?: string;
-  includeSeparator?: boolean;
 };
 
-const SkillCard = ({
-  name,
-  details,
-  separator = ",",
-}: SkillCardType) => {
+const SkillCard = ({ name, details }: SkillCardType) => {
   return (
     <div className="p-5 bg-zinc-900 text-xs rounded-2xl">
       <p className="font-bold mb-2">{name}</p>
-      <ul className="flex flex-wrap gap-1 justify-start ml-8">
+      <ul className="flex flex-wrap gap-1 justify-start">
         {details &&
           details.map(({ name, tooltip }, index) => {
             return (
-              <li title={tooltip} className="whitespace-nowrap">
+              <li title={tooltip} className="whitespace-nowrap px-3 py-2 bg-zinc-800 rounded-md">
                 {name}
-                {index < details.length - 1 ? separator : ""}
               </li>
             );
           })}

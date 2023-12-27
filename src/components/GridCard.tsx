@@ -10,7 +10,7 @@ function GridCard({ children, style, href }: GridCardProps) {
   const className = `
     flex flex-col grow-1
     place-content-stretch
-    bg-zinc-900 p-8 rounded-2xl
+    p-8 rounded-2xl
   `;
 
   const finalStyle = { ...style, flexBasis: "48%" }

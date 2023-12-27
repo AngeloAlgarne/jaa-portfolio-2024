@@ -8,7 +8,7 @@ type GridProps = {
 function Grid({ children, style }: GridProps) {
   return (
     <div
-      className="flex flex-wrap gap-4 w-full h-full justify-start"
+      className="flex flex-wrap gap-4 w-full h-full"
       style={style}
     >
       {children}

@@ -13,7 +13,7 @@ function Home() {
   const projCardBaseStyle = {
     backgroundImage: "",
     backgroundSize: "cover",
-    backgroundColor: "rgba(0,0,0,0.55)",
+    backgroundColor: "rgba(24,24,27,0.9)",
     backgroundBlendMode: "darken",
   };
 
@@ -54,30 +54,8 @@ function Home() {
         </Carousel>
       </section>
       <section className="flex mt-16 mb-64">
-        <div className="flex flex-col w-full h-max pr-3">
-          <div className="p-10">
-            <h1 className="flex justify-start text-5xl whitespace-nowrap">
-              MY <span className="font-bold">PROJECTS</span>
-            </h1>
-          </div>
-          <Grid style={{paddingLeft: 40, paddingRight: 40}}>
-            {projects &&
-              projects.map((proj) => {
-                const style = { ...projCardBaseStyle };
-                style.backgroundImage = `url("${proj.src}")`;
-                return (
-                  <GridCard style={style}>
-                    <h1 className="w-full text-center font-bold mb-5">
-                      {proj.name}
-                    </h1>
-                    <p>{proj.desc}</p>
-                  </GridCard>
-                );
-              })}
-          </Grid>
-        </div>
-        <div className="w-2/5 h-full pl-12 border-l-2">
-          <div className="p-10">
+      <div className="w-2/5 h-full pr-12 border-r-2">
+          <div className="flex justify-end w-full mb-4">
             <h1 className="text-5xl whitespace-nowrap">
               MY<span className="font-bold">SKILLS</span>
             </h1>
@@ -95,6 +73,29 @@ function Home() {
             </ul>
           </div>
         </div>
+        <div className="flex flex-col w-full h-max pl-12">
+          <div className="flex w-full justify-start mb-4">
+            <h1 className="flex justify-start text-5xl whitespace-nowrap">
+              MY <span className="font-bold">PROJECTS</span>
+            </h1>
+          </div>
+          <Grid>
+            {projects &&
+              projects.map((proj) => {
+                const style = { ...projCardBaseStyle };
+                style.backgroundImage = `url("${proj.src}")`;
+                return (
+                  <GridCard style={style}>
+                    <h1 className="w-full text-center font-bold text-lg mb-5">
+                      {proj.name}
+                    </h1>
+                    <p>{proj.desc}</p>
+                  </GridCard>
+                );
+              })}
+          </Grid>
+        </div>
+        
       </section>
     </>
   );
